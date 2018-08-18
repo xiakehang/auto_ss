@@ -35,8 +35,11 @@ class Daemon(object):
         shadowsocks = ShadowSocks(ssPath=ssPath, ssConfigPath=ssConfigPath)
         shadowsocks.setShadowSocks(pattern=None)
 
-        threading.Thread(target=self.startTest, args=None).start()
-        threading.Thread(target=self.watch, args=None).start()
+        threading.Thread(target=self.startTest, args=[]).start()
+        threading.Thread(target=self.watch, args=[]).start()
+
+        # _thread.start_new_thread(self.startTest, [])
+        # _thread.start_new_thread(self.watch, [])
 
         self.startTest()
 
@@ -46,14 +49,19 @@ class Daemon(object):
             time.sleep(20)
 
     def watch(self):
+        print('watching...')
         while True:
             if (self.proxyGood != True):
-                if (self.failures > 2 and self.failures < 10):
+                if (self.failures > 4 and self.failures <= 10):
+                    print('restarting ss...')
                     shadowsocks = ShadowSocks(
                         ssPath=ssPath, ssConfigPath=ssConfigPath)
                     shadowsocks.setShadowSocks(pattern=None)
-                else:
+                    self.failures = 0
+                
+                if (self.failures > 10):
                     print('connection lost... please check your network ')
+                    break
 
             time.sleep(10)
 

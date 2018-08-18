@@ -1,7 +1,5 @@
 from api_shadowsocks import *
 import sys
-import threading
-
 from daemon import Daemon
 
 
