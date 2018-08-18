@@ -1,0 +1,3 @@
+
+@echo building...
+pyinstaller -F auto_ss.py

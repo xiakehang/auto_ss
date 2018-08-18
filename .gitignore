@@ -1,0 +1,8 @@
+__pycache__
+build
+lib
+Shadowsocks
+dist
+run_shadowsocks.spec
+.vscode
+auto_ss.spec

@@ -1,0 +1,10 @@
+--2018-08-18 21:13:04--  https://www.google.com/textinputassistant/tia.png
+Connecting to 10.0.0.123:1081... connected.
+Proxy request sent, awaiting response... 200 OK
+Length: 258 [image/png]
+Saving to: 'check.png'
+
+     0K                                                       100%  271K=0.001s
+
+2018-08-18 21:13:05 (271 KB/s) - 'check.png' saved [258/258]
+
